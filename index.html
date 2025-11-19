@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vail Valley Unbound - Modern Education Template</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #f48c42;
+            --soft-blue: #dff3f8;
+            --soft-green: #d9f2d0;
+            --soft-orange: #ffe5d9;
+            --soft-purple: #dcd6f7;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            padding: 1.5rem 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-link {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        .user-icon {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding-top: 2rem;
+            padding-bottom: 5rem;
+            position: relative;
+        }
+        .hero-title {
+            font-weight: 800;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .btn-custom-gradient {
+            background: linear-gradient(45deg, #f4a261, #e76f51);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-custom-gradient:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* --- Feature Blobs --- */
+        .features-section {
+            padding: 4rem 0;
+        }
+        .blob-card {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+        
+        /* The Organic Watercolor Shape */
+        .blob-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            z-index: -1;
+            opacity: 0.8;
+            transition: border-radius 5s ease-in-out infinite alternate;
+        }
+
+        .blob-blue { background-color: var(--soft-blue); animation: morph 6s infinite; }
+        .blob-green { background-color: var(--soft-green); animation: morph 7s infinite; }
+        .blob-orange { background-color: var(--soft-orange); animation: morph 8s infinite; }
+
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        .feature-title {
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* --- Wavy Divider --- */
+        .wave-divider {
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+
+        /* --- Bottom CTA Section --- */
+        .cta-section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        /* The Purple Abstract Background behind illustration */
+        .illustration-bg {
+            background: var(--soft-purple);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .cta-buttons .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        .btn-orange-outline {
+            border: 2px solid #e76f51;
+            color: #e76f51;
+        }
+        .btn-orange-outline:hover {
+            background-color: #e76f51;
+            color: white;
+        }
+        .btn-green {
+            background-color: #81c784;
+            color: white;
+            border: none;
+        }
+        .btn-blue {
+            background-color: #64b5f6;
+            color: white;
+            border: none;
+        }
+
+        /* Footer Decorative Blob */
+        .footer-blob {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to top left, #f4a261, transparent);
+            border-radius: 100% 0 0 0;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-shapes text-warning"></i> Vail Valley Unbound
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Days</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Session</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Notes</a></li>
+                    <li class="nav-item ms-2">
+                        <a href="#" class="user-icon"><i class="fa-regular fa-user"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 order-2 order-lg-1 text-center text-lg-start">
+                    <h1 class="hero-title">Planting Seeds of Knowledge: <br><span style="color: #666;">Vail Valley Unbound</span></h1>
+                    <p class="text-muted mb-4">Cultivating a love for learning in a natural, supportive environment designed for your child's growth.</p>
+                    <a href="#" class="btn btn-custom-gradient">Cultivate Your Child's Future</a>
+                </div>
+                
+                <div class="col-lg-7 order-1 order-lg-2 text-center position-relative">
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80&mix=f4f4f4&subsampling-scale=2" 
+                         alt="Tree of Knowledge" 
+                         style="max-width: 90%; border-radius: 20px; mask-image: radial-gradient(circle, black 50%, transparent 100%); -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);">
+                    
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 mb-5 mb-md-0">
+                    <h3 style="font-weight: 800;">Our Fertile Ground</h3>
+                    <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="blob-card">
+                                <div class="blob-bg blob-blue"></div>
+                                <i class="fa-solid fa-puzzle-piece feature-icon"></i>
+                                <h5 class="feature-title">Hands-On Exploration</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="blob-card">
+                                <div class="blob-bg blob-green"></div>
+                                <i class="fa-solid fa-seedling feature-icon"></i>
+                                <h5 class="feature-title">Growth Mindset</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="blob-card">
+                                <div class="blob-bg blob-orange"></div>
+                                <i class="fa-solid fa-users feature-icon"></i>
+                                <h5 class="feature-title">Thriving Community</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" style="fill: #ffffff; fill-opacity: 0; stroke: #e76f51; stroke-width: 1; stroke-opacity: 0.3;"></path>
+            <path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60" fill="none" stroke="#e76f51" stroke-width="2" opacity="0.2"/>
+        </svg>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="illustration-bg">
+                        <img src="https://placehold.co/600x500/transparent/png?text=Boy+Painting+Illustration" class="img-fluid" alt="Boy Painting">
+                        
+                        <div class="bg-white p-3 rounded shadow-sm position-absolute top-50 start-50 translate-middle" style="margin-left: 80px; max-width: 150px;">
+                            <div class="d-flex align-items-center gap-2">
+                                <img src="https://placehold.co/40x40" class="rounded-circle" alt="user">
+                                <small style="font-size: 0.7rem;">"The best place to learn!"</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h2 style="font-weight: 800; margin-bottom: 1rem;">Join Our Learning Journey</h2>
+                    <p class="text-muted mb-4">Lorem ipsum dolor sit amet, ones quis terrace deploying quod civitas. Exploring new horizons and building a brighter future for every student involved.</p>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn btn-orange-outline"><i class="fa-solid fa-calendar-days me-2"></i>Schedule a Visit</button>
+                        <button class="btn btn-green"><i class="fa-solid fa-download me-2"></i>Rent Our Brochure</button>
+                    </div>
+                    <div class="cta-buttons mt-2">
+                        <button class="btn btn-blue"><i class="fa-solid fa-file-arrow-down me-2"></i>Download Brochure</button>
+                        <button class="btn btn-light border"><i class="fa-regular fa-id-badge me-2"></i>Meet Our Masters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-blob"></div>
+    </section>
+
+    <footer class="text-center py-4 small text-muted">
+        <div class="container">
+            <p>&copy; 2023 Vail Valley Unbound. All Rights Reserved.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="text-muted"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-muted"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="text-muted"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
